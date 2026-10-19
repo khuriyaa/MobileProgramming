@@ -17,6 +17,17 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     expect(find.text('Selamat Datang'), findsOneWidget);
+    expect(find.text('SEVIMA'), findsOneWidget);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Image &&
+            widget.image is AssetImage &&
+            (widget.image as AssetImage).assetName ==
+                'assets/images/sevima_logo.png',
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Username'), findsOneWidget);
     expect(find.text('Masuk'), findsOneWidget);
 

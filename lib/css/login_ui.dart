@@ -47,18 +47,38 @@ class _LoginUIState extends State<LoginUI> with SingleTickerProviderStateMixin {
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
-			backgroundColor: const Color(0xFFF8F7FC),
+			backgroundColor: const Color(0xFFF6F2FF),
 			body: Stack(
 				children: [
+					const Positioned.fill(
+						child: DecoratedBox(
+							decoration: BoxDecoration(
+								gradient: LinearGradient(
+									begin: Alignment.topLeft,
+									end: Alignment.bottomRight,
+									colors: [
+										Color(0xFFFBF9FF),
+										Color(0xFFF1EBFF),
+										Color(0xFFF8F4FF),
+									],
+								),
+							),
+						),
+					),
 					const Positioned(
 						top: -110,
 						right: -75,
-						child: _DecorativeCircle(size: 260, color: Color(0xFFEAE3FA)),
+						child: _DecorativeCircle(size: 280, color: Color(0x55D7C8FF)),
 					),
 					const Positioned(
 						bottom: -145,
 						left: -90,
-						child: _DecorativeCircle(size: 300, color: Color(0xFFF0EBFA)),
+						child: _DecorativeCircle(size: 310, color: Color(0x55CFC1F5)),
+					),
+					const Positioned(
+						top: 190,
+						left: -55,
+						child: _DecorativeCircle(size: 125, color: Color(0x33E3D7FF)),
 					),
 					SafeArea(
 						child: Center(
@@ -74,29 +94,26 @@ class _LoginUIState extends State<LoginUI> with SingleTickerProviderStateMixin {
 												crossAxisAlignment: CrossAxisAlignment.stretch,
 												children: [
 													Center(
-														child: Container(
-															width: 76,
-															height: 76,
-															decoration: BoxDecoration(
-																gradient: const LinearGradient(
-																	colors: [_purple, Color(0xFF9275E8)],
-																	begin: Alignment.topLeft,
-																	end: Alignment.bottomRight,
+														child: Column(
+															mainAxisSize: MainAxisSize.min,
+															children: [
+																Image.asset(
+																	'assets/images/sevima_logo.png',
+																	width: 68,
+																	height: 68,
+																	fit: BoxFit.contain,
 																),
-																borderRadius: BorderRadius.circular(24),
-																boxShadow: [
-																	BoxShadow(
-																		color: _purple.withOpacity(0.24),
-																		blurRadius: 22,
-																		offset: const Offset(0, 10),
+																const SizedBox(height: 5),
+																const Text(
+																	'SEVIMA',
+																	style: TextStyle(
+																		color: _deepPurple,
+																		fontSize: 13,
+																		fontWeight: FontWeight.bold,
+																		letterSpacing: 1.5,
 																	),
-																],
-															),
-															child: const Icon(
-																Icons.auto_awesome_rounded,
-																color: Colors.white,
-																size: 35,
-															),
+																),
+															],
 														),
 													),
 													const SizedBox(height: 30),
